@@ -13,3 +13,15 @@ spring:
         format_sql: true
     databas: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 75907655023-gpugku3p8ei1bkdcdvhfda8l4dsbnvg3.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid,profile,email
+      resource-server:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
