@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @SuppressWarnings("all")
 @Configuration
@@ -20,7 +21,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.csrf()
+        /*http.csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/v1/**")
@@ -32,25 +33,24 @@ public class SecurityConfiguration {
                 //.oauth2ResourceServer().jwt()
                 .oauth2Login(Customizer.withDefaults());
                 //.formLogin(Customizer.withDefaults());
-
+*/
 
         /*normal jwt token login*/
-        /*
 
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/v1/auth/**")
-                //.permitAll()
-                //.anyRequest()
+                .permitAll()
+                .anyRequest()
                 .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);*/
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
