@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/nandasample?currentSchema=lat5
+    url: jdbc:postgresql://localhost:5432/testbase?currentSchema=lat5
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver

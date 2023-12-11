@@ -21,6 +21,20 @@ public class AuthenticationController {
     return ResponseEntity.ok(service.register(request));
     }
 
+    @PostMapping("/register/send-otp")
+    public ResponseEntity<AuthenticationResponse> sendOtp(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(service.register(request));
+    }
+
+    @PostMapping("/register/register-confirm-otp")
+    public ResponseEntity<AuthenticationResponse> validateOtp(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(service.register(request));
+    }
+
     @PostMapping("/authentication")
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody AuthenticationRequest request
